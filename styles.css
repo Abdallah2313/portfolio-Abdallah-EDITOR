@@ -1,0 +1,228 @@
+/* إعدادات عامة */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+/* الهيدر */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.header-icons a img {
+    width: 3rem;
+    margin: 0 1rem;
+}
+
+.editor-photo {
+    width: 10rem;
+    border-radius: 50%;
+}
+
+.editor-name {
+    color: #1e90ff;
+}
+
+/* صندوق "Video Editing" */
+.flashing-box {
+    border: 2px solid #1e90ff;
+    padding: 0.5rem;
+    margin: 1rem auto;
+    width: fit-content;
+    animation: flashing 1s infinite;
+}
+
+.flashing-box p {
+    font-size: 1.5rem;
+    color: #1e90ff;
+}
+
+@keyframes flashing {
+    0%, 100% { border-color: #1e90ff; }
+    50% { border-color: transparent; }
+}
+
+/* قسم المهارات */
+.skills-section {
+    text-align: center;
+    perspective: 1000px;
+}
+
+.cylinder {
+    position: relative;
+    width: 100%;
+    max-width: 20rem;
+    height: 20rem;
+    transform-style: preserve-3d;
+    animation: rotateCylinder 10s linear infinite;
+    margin: 2rem auto;
+}
+
+.icon {
+    position: absolute;
+    font-size: 2rem;
+    color: #1e90ff;
+    transform-style: preserve-3d;
+}
+
+.icon:nth-child(1) { transform: rotateY(0deg) translateZ(10rem); }
+.icon:nth-child(2) { transform: rotateY(72deg) translateZ(10rem); }
+.icon:nth-child(3) { transform: rotateY(144deg) translateZ(10rem); }
+.icon:nth-child(4) { transform: rotateY(216deg) translateZ(10rem); }
+.icon:nth-child(5) { transform: rotateY(288deg) translateZ(10rem); }
+
+@keyframes rotateCylinder {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+/* الحاوية */
+.container {
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+}
+
+.software-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+/* Timeline style */
+.timeline {
+    position: relative;
+    padding: 10px 0;
+    border-left: 2px solid #f31212;
+}
+
+.timeline-event {
+    position: relative;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    width: 20px;
+    height: 20px;
+    background-color: #110eec;
+    border-radius: 50%;
+    top: 5px;
+}
+
+.timeline-event h3 {
+    color: #f57f17;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.timeline-event p {
+    margin: 5px 0 0 0;
+}
+
+.timeline-line {
+    position: absolute;
+    left: -1px;
+    top: 0;
+    height: 100%;
+    border-left: 2px solid #f57f17;
+    opacity: 0.5;
+}
+
+/* قسم السيارة */
+/* قسم السيارة */
+.car-container {
+    position: relative; /* يضمن أن السيارة مرتبطة بهذا العنصر */
+    text-align: center;
+    margin: 2rem auto; /* محاذاة العنصر بالكامل */
+}
+
+#car {
+    position: absolute;
+    top: 0; /* تبدأ السيارة من مستوى الكلمة */
+    left: -100px; /* تبدأ خارج العنصر */
+    width: 80px;
+    animation: moveCar 10s linear infinite;
+}
+
+@keyframes moveCar {
+    from {
+        left: -100px; /* خارج العنصر من اليسار */
+    }
+    to {
+        left: 100%; /* تخرج من العنصر إلى اليمين */
+    }
+}
+
+/* قسم الفيديوهات */
+.videos-section .videos-grid,
+.long-videos-section .long-videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.video-item iframe,
+.long-video-item iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+.long-video-item {
+    border: 2px solid #fff;
+    animation: flashing 1s infinite;
+}
+
+/* خط الفاصل */
+.divider {
+    border-top: 2px solid #1e90ff;
+    margin: 1rem 0;
+}
+
+/* تحسين العرض على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .cylinder {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .videos-section .videos-grid,
+    .long-videos-section .long-videos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-icons a img {
+        width: 2.5rem;
+    }
+
+    .cylinder {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .timeline-event h3 {
+        font-size: 0.9em;
+    }
+}
